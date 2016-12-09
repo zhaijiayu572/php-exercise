@@ -19,10 +19,10 @@
             if($select ==2){
                 $result .=  " 平局";
             }
-            if($select == 3){
+            if($select == 1){
                 $result .=  " 获胜";
             }
-            if($select == 1){
+            if($select == 3){
                 $result .= " 失败";
             }
         }
@@ -31,10 +31,10 @@
             if($select ==3){
                 $result .=  " 平局";
             }
-            if($select == 1){
+            if($select == 2){
                 $result .=  " 获胜";
             }
-            if($select == 2){
+            if($select == 1){
                 $result .=  " 失败";
             }
         }
