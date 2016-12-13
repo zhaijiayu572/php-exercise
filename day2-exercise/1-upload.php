@@ -1,6 +1,8 @@
 <?php
     if(isset($_POST['sub'])){
         $file = $_FILES['file'];
+        echo "<pre>";
+        var_dump($file);
         $name = $file['name'];
         $arr = explode('.',$name);
         $number = count($arr)-1;
