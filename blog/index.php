@@ -1,4 +1,14 @@
-<a href="add.php">增加文章</a>
+<a href="add.php">增加文章</a>&nbsp;&nbsp;&nbsp;
+<?php
+    if(isset($_COOKIE['id'])){
+        $name = $_COOKIE['name'];
+        $id = $_COOKIE['id'];
+        echo "<p>欢迎你,$name</p>";
+        echo "<a href='unlogin.php?id=".$id."'>注销</a>";
+    }else{
+        echo "<a href='login.php'>未登录</a>";
+    }
+?>
 <form action="index.php" method="get">
     <input type="text" name="search">
     <input type="submit" name="sub" value="搜索">
