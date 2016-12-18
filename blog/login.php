@@ -17,6 +17,8 @@ if(isset($_POST['sub'])){
         $query = mysqli_query($link,$sql);
         $result = mysqli_fetch_array($query);
         if($result){
+            setcookie('id',$result['id']);
+            setcookie('name',$result['name']);
             echo "<script>alert('欢迎你".$result['name']."')</script>";
             echo "<script>location='index.php'</script>";
         }else{
