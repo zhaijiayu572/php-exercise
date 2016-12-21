@@ -23,11 +23,13 @@ if(isset($_GET['id'])){
             <hr>
             <?php
         }
-        $sql = "select message,id from comment where bid='$bid'";
+        $sql = "select name,message from user,comment where user.id = comment.id and bid='$bid'";
+        echo $sql;
         $query = mysqli_query($link,$sql);
+
         while ($result = mysqli_fetch_array($query)){
             ?>
-            <p>用户id：<?php echo $result['id']?></p>
+            <p>用户id：<?php echo $result['name']?></p>
             <p><?php echo $result['message']?></p><br>
             <?php
         }
