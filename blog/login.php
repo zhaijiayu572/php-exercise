@@ -37,4 +37,5 @@ if(isset($_POST['sub'])){
     密码:<input type="password" name="pass"><br>
     <input type="submit" name="sub">
 </form>
+<a href="reg.php">注册</a>
 
