@@ -24,12 +24,10 @@ if(isset($_GET['id'])){
             <?php
         }
         $sql = "select name,message from user,comment where user.id = comment.id and bid='$bid'";
-        echo $sql;
         $query = mysqli_query($link,$sql);
-
         while ($result = mysqli_fetch_array($query)){
             ?>
-            <p>用户id：<?php echo $result['name']?></p>
+            <p>用户：<?php echo $result['name']?></p>
             <p><?php echo $result['message']?></p><br>
             <?php
         }
@@ -46,7 +44,6 @@ if(isset($_POST['sub'])){
         $id = $_COOKIE['id'];
         if($comment!=""){
             $sql = "insert into comment(bid,id,message) values('$bid','$id','$comment')";
-            echo $sql;
             $query = mysqli_query($link,$sql);
             if($query){
                 echo "<script>location='edit.php?id=".$bid."'</script>";
