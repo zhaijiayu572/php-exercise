@@ -1,7 +1,7 @@
 <?php
 include "conect.php";
-if(isset($_GET['id'])){
-    $bid = $_GET['id'];
+if(isset($_GET['bid'])){
+    $bid = $_GET['bid'];
     setcookie('bid',$bid);
     $sql = "update blog set hits=hits+1 where bid='$bid'";
     $query = mysqli_query($link,$sql);
@@ -17,7 +17,7 @@ if(isset($_GET['id'])){
             <p><?php echo $arr['content']?></p><br>
             <form action="edit.php" method="post">
                 <textarea name="comment" cols="30" rows="10"></textarea>
-                <input type="submit" name="sub" value="发表">
+                <input type="submit" name="sub" value="发表评论">
             </form>
             <h3>用户评论</h3>
             <hr>
@@ -46,7 +46,7 @@ if(isset($_POST['sub'])){
             $sql = "insert into comment(bid,id,message) values('$bid','$id','$comment')";
             $query = mysqli_query($link,$sql);
             if($query){
-                echo "<script>location='edit.php?id=".$bid."'</script>";
+                echo "<script>location='edit.php?bid=".$bid."'</script>";
             }else{
                 echo "error";
             }
@@ -55,8 +55,14 @@ if(isset($_POST['sub'])){
             echo "<script>location='index.php'</script>";
         }
     }else{
-        echo "<script>alert('尚未登录，请先登录')</script>";
-        echo "<script>location='index.php'</script>";
+        $bid = $_COOKIE['bid'];
+        $url = $_SERVER['REQUEST_URI'];
+        var_dump($url);
+        $url = explode('/',$url);
+        $last = count($url)-1;
+        $url = $url[$last]."?bid=".$bid;
+        echo "<script>alert('尚未登录,请登录')</script>";
+        echo "<script>location='login.php?url=$url'</script>";
     }
 }
 ?>
