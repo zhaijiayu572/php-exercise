@@ -17,7 +17,7 @@ if(isset($_POST['sub'])){
         $query = mysqli_query($link,$sql);
         $result = mysqli_fetch_array($query);
         if($result){
-            setcookie('id',$result['id']);
+            setcookie('id',$result['id'],time()+60);
             setcookie('name',$result['name']);
             echo "<script>alert('登录成功！')</script>";
             echo "<script>location='index.php'</script>";
@@ -35,5 +35,5 @@ if(isset($_POST['sub'])){
 <form action="login.php" method="post">
     用户名:<input type="text" name="name"><br>
     密码:<input type="password" name="pass"><br>
-    <input type="submit" value="注册" name="sub">
+    <input type="submit" value="登录" name="sub">
 </form>
