@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['id'])){
+if(isset($_COOKIE['id'])){
     setcookie('name',null);
     setcookie('id',null);
     echo "<script>alert('注销成功')</script>";
