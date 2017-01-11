@@ -1,0 +1,4 @@
+用户表(uid,uname,pass,Admin)
+评论表(pid,pcon,ptime,bid,uid)
+私信表(xid,scon,stime,sid,rid)
+朋友表()
